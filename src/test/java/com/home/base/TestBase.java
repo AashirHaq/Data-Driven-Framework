@@ -2,6 +2,8 @@ package com.home.base;
 
 import org.testng.annotations.BeforeSuite;
 
+import com.home.utilities.ExcelReader;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -14,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 
 public class TestBase {
@@ -35,10 +38,10 @@ public class TestBase {
 	public static Properties OR = new Properties();
 	public static FileInputStream fis;
 	public static Logger log = Logger.getLogger("devpinoyLogger");
+	public static String pathOfCurrentDir = System.getProperty("user.dir");	
+	public static ExcelReader excel = new ExcelReader(pathOfCurrentDir + "\\src\\test\\resources\\excel\\testData.xlsx");
+	public static WebDriverWait wait;
 	
-	
-	public static String pathOfCurrentDir = System.getProperty("user.dir");
-
 	
   @BeforeSuite
   public void setUp() throws IOException {
@@ -68,6 +71,7 @@ public class TestBase {
 		  log.debug("Navigated to " + config.getProperty("testsiteurl"));
 		  driver.manage().window().maximize();
 		  driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")), TimeUnit.SECONDS);
+		  wait = new WebDriverWait(driver, 5L);
 	  }
 	  
   }

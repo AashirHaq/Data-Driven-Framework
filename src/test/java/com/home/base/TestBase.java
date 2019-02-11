@@ -52,6 +52,7 @@ public class TestBase {
 	public static WebDriverWait wait;
 	public ExtentReports report = ExtentManager.getInstance();
 	public static ExtentTest test;
+	public static String browser;
 	
 	
   @BeforeSuite
@@ -65,7 +66,15 @@ public class TestBase {
 		  fis = new FileInputStream(pathOfCurrentDir + "\\src\\test\\resources\\properties\\OR.properties");
 		  OR.load(fis);
 		  log.debug("OR file loaded");
+		  
+		  if(System.getenv("browser") != null && !System.getenv("browser").isEmpty()) {
+			  browser = System.getenv("browser");
+		  }else {
+			  browser = config.getProperty("browser");
+		  }
 
+		  config.setProperty("browser", browser);
+		  
 		  if(config.getProperty("browser").equals("firefox")) {
 			  driver = new FirefoxDriver();
 		  }else if(config.getProperty("browser").equals("chrome")) {

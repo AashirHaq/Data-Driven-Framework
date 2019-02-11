@@ -22,6 +22,7 @@ public class BankManagerLoginTest extends TestBase{
 	  
 	  log.debug("Login successfully executed");
 	  Reporter.log("Login successfully executed");
+	  System.out.println("Checking Git integration with Jenkins on push for every minutes");
 	  
   }
   

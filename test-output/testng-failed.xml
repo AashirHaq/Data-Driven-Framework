@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Data Driven Basics]">
+<suite name="Failed suite [Data Driven Basics]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     <listener class-name="com.home.listeners.CustomListeners"/>
   </listeners>
-  <test thread-count="5" name="Bank Manager Login Test(failed)">
+  <test thread-count="5" name="Open Account Test(failed)">
     <classes>
-      <class name="com.home.testcases.BankManagerLoginTest">
+      <class name="com.home.testcases.OpenAccountTest">
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="loginAsBankManager"/>
+          <include name="openAccountTest" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.home.testcases.BankManagerLoginTest -->
+      </class> <!-- com.home.testcases.OpenAccountTest -->
     </classes>
-  </test> <!-- Bank Manager Login Test(failed) -->
+  </test> <!-- Open Account Test(failed) -->
 </suite> <!-- Failed suite [Data Driven Basics] -->

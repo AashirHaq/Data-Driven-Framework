@@ -1,7 +1,8 @@
 .settings/
 .classpath
 .project
-*.log
+*.class
 target/
-executables/
+src/test/resources/properties/log4j.properties
 test-output/
+src/test/resources/executables/

@@ -13,7 +13,6 @@
 
 	<dependencies>
 
-
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
 			<groupId>org.testng</groupId>

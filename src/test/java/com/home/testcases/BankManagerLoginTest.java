@@ -1,5 +1,7 @@
 package com.home.testcases;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -10,18 +12,17 @@ import com.home.base.TestBase;
 public class BankManagerLoginTest extends TestBase{
 	 
   @Test
-  public void loginAsBankManager() throws InterruptedException {
+  public void bankManagerLoginTest() throws InterruptedException, IOException {
 	  
+//	  verifyEquals("abc", "xyz");
 	  log.debug("Inside Login Test");
-	  driver.findElement(By.cssSelector(OR.getProperty("bmlBtn"))).click();
-	  Thread.sleep(3000);
+	  click("bmlBtn_CSS");
 	  
-	  Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn"))), "Login not successfull");
+	  Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn_CSS"))), "Login not successfull");
 	  
 	  log.debug("Login successfully executed");
 	  Reporter.log("Login successfully executed");
-	  
-	  Assert.fail("Login not Successful");
+//	  System.out.println("Checking Git integration with Jenkins on push for every minutes");
 	  
   }
   
